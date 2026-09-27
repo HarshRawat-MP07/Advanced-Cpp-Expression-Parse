@@ -16,7 +16,6 @@ for message in st.session_state.messages:
 
 # React to user input
 if prompt := st.chat_input("Aapko kis category ya scheme ke baare mein janna hai?"):
-    # Display user message in chat message container
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
@@ -26,7 +25,7 @@ if prompt := st.chat_input("Aapko kis category ya scheme ke baare mein janna hai
     prompt_lower = prompt.lower()
     
     if "farmer" in prompt_lower or "krishi" in prompt_lower or "kisan" in prompt_lower:
-    axs    response = "🌾 **Farmers Schemes & Insights:**\n- **PM-KISAN:** ₹6,000/year direct transfer.\n- **PM Fasal Bima Yojana:** Crop insurance coverage.\n- **Ground Problem:** Delayed payments and awareness gap in rural areas."
+        response = "🌾 **Farmers Schemes & Insights:**\n- **PM-KISAN:** ₹6,000/year direct transfer.\n- **PM Fasal Bima Yojana:** Crop insurance coverage.\n- **Ground Problem:** Delayed payments and awareness gap in rural areas."
     elif "women" in prompt_lower or "mahila" in prompt_lower or "ladli" in prompt_lower:
         response = "👩‍🦰 **Women Empowerment Schemes:**\n- **Ladli Behna Yojana:** Monthly financial assistance.\n- **Stand-Up India:** Business loans from ₹10L to ₹1Cr.\n- **Ground Problem:** Complex paperwork and digital illiteracy."
     elif "youth" in prompt_lower or "startup" in prompt_lower or "skill" in prompt_lower:
@@ -36,7 +35,6 @@ if prompt := st.chat_input("Aapko kis category ya scheme ke baare mein janna hai
     else:
         response = f"Bhai, maine aapka sawaal ('{prompt}') sun liya hai. OmniBharat project ke liye aap Farmers, Women, Youth ya Students ki categories ke baare mein pooch sakte hain. Inmein se kis par deep research chahiye?"
 
-    # Display assistant response in chat message container
     with st.chat_message("assistant"):
         st.markdown(response)
     st.session_state.messages.append({"role": "assistant", "content": response})
